@@ -8,7 +8,7 @@ const Forecast = () => {
 
     let bgImage = "url('140915_BURKARD_90601-1.webp')"; // Imagen predeterminada
 
-    if (weatherData?.main?.temp) {
+    if (weatherData && weatherData.main && weatherData.main.temp) {
         const temperature = weatherData.main.temp;
         if (temperature > 25) {
             bgImage = "url('140915_BURKARD_90601-1.webp')";
@@ -21,16 +21,18 @@ const Forecast = () => {
 
     return (
         <>
-        <div className='bg-cover bg-center h-screen' style={{backgroundImage: `${bgImage}`}}>
+        <div className='bg-cover bg-center h-screen' style={{backgroundImage: bgImage}}>
         <div aria-hidden="true" className="absolute inset-0 bg-gray-900 opacity-50" />
-          {(weatherData.length !== 0)?
+          {(weatherData.length !== 0) && (
           <div className="relative max-w-max mx-auto items-center py-32 px-6 text-center sm:py-64 lg:px-0">
             <div className="flex bg-gray-900 bg-opacity-60 rounded-lg p-4">
+            {weatherData.weather && weatherData.weather[0] && (
                 <img
                 src={"https://openweathermap.org/img/wn/" + weatherData.weather[0].icon + "@4x.png"}
                 height="100px"
                 width="100px"
                 />
+            )}
                 <div className="flex-col">
                 <h1 className="text-4xl font-bold tracking-tight text-white lg:text-5xl">
                     {weatherData.name}, {weatherData.sys.country}
@@ -41,8 +43,7 @@ const Forecast = () => {
                 </div>
             </div>
           </div>
-                : null
-            }
+          )}
         </div>
         </>
     )
