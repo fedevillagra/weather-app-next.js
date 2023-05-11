@@ -7,7 +7,7 @@ const Forecast = () => {
     const { weatherData } = context;
 
     let bgImage = "url('140915_BURKARD_90601-1.webp')"; // Imagen predeterminada
-/*
+
     if (weatherData && weatherData.main && weatherData.main.temp) {
         const temperature = weatherData.main.temp;
         if (temperature > 25) {
@@ -18,7 +18,7 @@ const Forecast = () => {
             bgImage = "url('iYvDeqVGRbebiQv2PIJi_DSC_8407.avif')";
         }
       }
-*/
+
     return (
         <>
         <div className='bg-cover bg-center h-screen' style={{backgroundImage: bgImage}}>
