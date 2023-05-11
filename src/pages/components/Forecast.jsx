@@ -23,7 +23,7 @@ const Forecast = () => {
         <>
         <div className='bg-cover bg-center h-screen' style={{backgroundImage: bgImage}}>
         <div aria-hidden="true" className="absolute inset-0 bg-gray-900 opacity-50" />
-          {(weatherData.length !== 0) && (
+          {weatherData && Object.keys(weatherData).length !== 0 && (
           <div className="relative max-w-max mx-auto items-center py-32 px-6 text-center sm:py-64 lg:px-0">
             <div className="flex bg-gray-900 bg-opacity-60 rounded-lg p-4">
             {weatherData.weather && weatherData.weather[0] && (
