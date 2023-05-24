@@ -37,11 +37,9 @@ const SearchNavBar = () => {
         if(!suggestedCities.length){return;}
         try {   
             const { lat , lon } = cityInput;
-
               const weatherResponse = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?`+
-                `lat=`+
-                `${lat}`+
+                `lat=${lat}`+
                 `&lon=${lon}`+
                 `&appid=${API_KEY}`+
                 `&units=metric`
