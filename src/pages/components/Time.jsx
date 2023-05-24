@@ -23,7 +23,7 @@ const Time = ({ onHoraActualChange }) => {
 
   const actualizarHora = () => {
     const nuevaHoraActual = obtenerHoraActual();
-    setHoraActual(nuevaHoraActual);
+    (nuevaHoraActual !== 'Invalid Date') && setHoraActual(nuevaHoraActual);
     onHoraActualChange(nuevaHoraActual); // Llamar a la función de callback con la nueva hora actual
     requestAnimationFrame(actualizarHora);
   };

@@ -8,7 +8,6 @@ const Forecast = ({ horaActual }) => {
 
         let bgImage; 
         let hora = parseInt(horaActual.split(":")[0]);
-        console.log(hora);
         if (hora < 8 || hora > 20) {
             bgImage = "url('nature-3194001_1280.jpg')"; // night image
         } else{
